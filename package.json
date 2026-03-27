@@ -1,0 +1,19 @@
+{
+  "name": "beads-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP stdio wrapper for Beads CLI",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.76",
+    "@beads/bd": "0.62.0"
+  }
+}
